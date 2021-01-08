@@ -1,0 +1,48 @@
+name: cam_scanner
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Http Api
+  http: ^0.12.2
+
+  # CamScanner
+  edge_detection: ^1.0.5
+
+  # PDF generation - path
+  path_provider: ^1.6.24
+  uuid: ^2.2.2
+  pdf: ^1.13.0
+
+  # PDF View
+  printing: ^3.7.2
+  rflutter_alert: ^1.1.0
+
+  # Merge part
+  flutter_swiper: ^1.1.6
+  r_dotted_line_border: ^0.1.0
+
+  ## Dependency injection
+  get_it: ^5.0.3
+  injectable: ^1.0.7
+
+  #Font icons
+  fontisto_flutter: ^3.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Injectable and dependency injection
+  build_runner:
+  injectable_generator: ^1.0.7
+
+flutter:
+  uses-material-design: true
