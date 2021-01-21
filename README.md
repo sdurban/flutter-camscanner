@@ -33,15 +33,14 @@ This pdf can be printed, shared or OCR to text.
 
 ## Images
 
-![](images/main_screen_no_scan.jpg)
+<img src="images/main_screen_no_scan.jpg" height="300px" />
 
-![](images/scan_document.jpg)
+<img src="images/scan_document.jpg" height="300px" />
 
-![](images/document_scanning.gif)
+<img src="images/document_scanning.gif" height="300px" />
 
-![](images/main_screen_with_docs.jpg)
+<img src="images/main_screen_with_docs.jpg" height="300px" />
 
-![](images/document_viewer.jpg)
+<img src="images/document_viewer.jpg" height="300px" />
 
-![](images/exercise_info.jpg)
-
+<img src="images/exercise_info.jpg" height="300px" />
