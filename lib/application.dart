@@ -13,7 +13,7 @@ class Application extends StatelessWidget {
     return MaterialApp(
       theme: _lightTheme,
       routes: routes,
-      initialRoute: "/dashboard",
+      initialRoute: '/dashboard',
       themeMode: ThemeMode.light,
     );
   }

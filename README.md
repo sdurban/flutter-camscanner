@@ -1,3 +1,5 @@
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
+
 # UOCReactNativeFlutter - Activity 5 - Exercise 3
 
 This is a Capstone project for subject ``New Trends in Mobile Development`` course taken at the Open Universitoy of Catalonia (www.uoc.edu).

@@ -53,9 +53,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
         title: const Text('Flutter CamScanner'),
         actions: [
           GestureDetector(
-            onTap: () => Navigator.of(context).pushNamed("/info"),
-            child: Padding(
-              padding: const EdgeInsets.only(right: 20.0),
+            onTap: () => Navigator.of(context).pushNamed('/info'),
+            child: const Padding(
+              padding: EdgeInsets.only(right: 20.0),
               child: Icon(Istos.info),
             ),
           ),
@@ -71,16 +71,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
           if (_error) {
             return const Center(
-              child: Text("Something goes wrong"),
+              child: Text('Something goes wrong'),
             );
           }
 
-          if (_scannedDocuments.length == 0) {
+          if (_scannedDocuments.isEmpty) {
             return Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Center(
                 child: Text(
-                  "To scan your first document, click the floating button.",
+                  'To scan your first document, click the floating button.',
                   style: Theme.of(context).textTheme.headline5,
                 ),
               ),
@@ -116,15 +116,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          color: Color(0x70000000),
-                          padding: EdgeInsets.symmetric(
+                          color: const Color(0x70000000),
+                          padding: const EdgeInsets.symmetric(
                             vertical: 5,
                             horizontal: 5,
                           ),
                           width: double.infinity,
                           child: Text(
                             _scannedDocuments[index].uuid,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                             ),
                           ),
@@ -140,7 +140,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context)
-            .pushNamed("/doc-scan")
+            .pushNamed('/doc-scan')
             .then((value) => _updateView()),
         child: const Icon(Icons.camera_alt_outlined),
         backgroundColor: Colors.green,

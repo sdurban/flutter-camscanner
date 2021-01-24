@@ -14,7 +14,7 @@ class DocToTextScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Document to text"),
+        title: const Text('Document to text'),
       ),
       body: Container(
         padding: const EdgeInsets.all(15),
@@ -22,8 +22,8 @@ class DocToTextScreen extends StatelessWidget {
           future: _pdfToTextService.execute(File(_pathFile).readAsBytesSync()),
           builder: (_, snapshot) {
             if (snapshot.hasError) {
-              return Center(
-                child: Text("Something goes wrong"),
+              return const Center(
+                child: Text('Something goes wrong'),
               );
             }
 

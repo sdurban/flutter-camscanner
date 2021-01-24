@@ -16,7 +16,7 @@ class LoadingOverlay {
 
   Future<T> during<T>(Future<T> future, {bool showProgress = true}) {
     show(showProgress);
-    return future.whenComplete(() => hide());
+    return future.whenComplete(hide);
   }
 
   LoadingOverlay._create(this._context);
@@ -34,9 +34,9 @@ class _FullScreenLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5)),
+      decoration: const BoxDecoration(color: Color.fromRGBO(0, 0, 0, 0.5)),
       child: Center(
-        child: this._showProgress ? CircularProgressIndicator() : Container(),
+        child: _showProgress ? const CircularProgressIndicator() : Container(),
       ),
     );
   }

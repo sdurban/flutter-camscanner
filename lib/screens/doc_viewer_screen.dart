@@ -15,17 +15,18 @@ class DocViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var file = File(_scannedDocument.documentUri);
+    final file = File(_scannedDocument.documentUri);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Document Viewer"),
+        title: const Text('Document Viewer'),
       ),
       body: PdfPreview(
         build: (_) => file.readAsBytesSync(),
         canChangePageFormat: false,
         actions: [
           PdfPreviewAction(
-            icon: Icon(Istos.file_1),
+            icon: const Icon(Istos.file_1),
             onPressed: (BuildContext context, LayoutCallback build,
                 PdfPageFormat pageFormat) {
               if (file.lengthSync() < 1000000) {
@@ -37,8 +38,8 @@ class DocViewer extends StatelessWidget {
                 );
               } else {
                 AlertModal.of(context).alert(
-                  title: "API Limit",
-                  desc: "Image is bigger than 1MB, please try with <1MB file",
+                  title: 'API Limit',
+                  desc: 'Image is bigger than 1MB, please try with <1MB file',
                 );
               }
             },

@@ -18,7 +18,7 @@ class AlertModal {
       buttons: [
         DialogButton(
           child: const Text(
-            "Accept",
+            'Accept',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           onPressed: () => Navigator.pop(_context),

@@ -16,14 +16,14 @@ class DocScanScreen extends StatefulWidget {
 }
 
 class _DocScanScreenState extends State<DocScanScreen> {
-  List<String> _documents = [];
+  final List<String> _documents = [];
 
   @override
   void dispose() {
     super.dispose();
-    _documents.forEach((element) {
-      File(element).delete();
-    });
+    for (final document in _documents) {
+      File(document).delete();
+    }
   }
 
   @override
@@ -32,7 +32,7 @@ class _DocScanScreenState extends State<DocScanScreen> {
       appBar: AppBar(
         title: const Text('Scanning document'),
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
         child: Swiper(
@@ -46,19 +46,18 @@ class _DocScanScreenState extends State<DocScanScreen> {
                   ),
                   RawMaterialButton(
                     onPressed: () {
-                      File file = File(_documents[index]);
-                      file.delete();
+                      File(_documents[index])..delete();
                       _documents.removeAt(index);
                       setState(() {});
                     },
                     elevation: 0.0,
-                    fillColor: Color(0x50000000),
-                    child: Icon(
+                    fillColor: const Color(0x50000000),
+                    child: const Icon(
                       Istos.trash,
                       size: 35.0,
                     ),
-                    padding: EdgeInsets.all(15.0),
-                    shape: CircleBorder(),
+                    padding: const EdgeInsets.all(15.0),
+                    shape: const CircleBorder(),
                   ),
                 ],
               );
@@ -95,7 +94,7 @@ class _DocScanScreenState extends State<DocScanScreen> {
                           height: 15,
                         ),
                         const Text(
-                          "Add new image",
+                          'Add new image',
                           style: TextStyle(
                             fontSize: 25,
                           ),
@@ -108,8 +107,8 @@ class _DocScanScreenState extends State<DocScanScreen> {
             }
           },
           itemCount: _documents.length + 1,
-          pagination: SwiperPagination(),
-          control: SwiperControl(),
+          pagination: const SwiperPagination(),
+          control: const SwiperControl(),
           viewportFraction: 0.8,
           itemHeight: 20,
           scale: 0.9,
@@ -120,7 +119,7 @@ class _DocScanScreenState extends State<DocScanScreen> {
         color: Theme.of(context).primaryColor,
         child: SafeArea(
           child: Container(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               bottom: 10,
               top: 10,
               right: 15,
@@ -130,7 +129,8 @@ class _DocScanScreenState extends State<DocScanScreen> {
               children: [
                 RaisedButton(
                   onPressed: () {
-                    final generatePdfService = GetIt.I.get<GeneratePdfService>();
+                    final generatePdfService =
+                        GetIt.I.get<GeneratePdfService>();
 
                     LoadingOverlay.of(context)
                         .during(
@@ -140,7 +140,7 @@ class _DocScanScreenState extends State<DocScanScreen> {
                       Navigator.of(context).pop();
                     });
                   },
-                  child: const Text("CONTINUE"),
+                  child: const Text('CONTINUE'),
                   color: Theme.of(context).bottomAppBarColor,
                 ),
               ],

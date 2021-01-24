@@ -15,12 +15,12 @@ class IoScannedDocumentRepository implements ScannedDocumentRepository {
 
   Future<String> get _directory async {
     if (_filePath == null) {
-      String directory = (await getApplicationDocumentsDirectory()).path +
-          Platform.pathSeparator +
-          "scanned_documents";
+      final String directory =
+      // ignore: lines_longer_than_80_chars
+      '${(await getApplicationDocumentsDirectory()).path}${Platform.pathSeparator}scanned_documents';
 
       final savedDir = Directory(directory);
-      bool hasExisted = await savedDir.exists();
+      final bool hasExisted = await savedDir.exists();
       if (!hasExisted) {
         await savedDir.create();
       }
@@ -32,20 +32,20 @@ class IoScannedDocumentRepository implements ScannedDocumentRepository {
 
   @override
   Future<List<ScannedDocument>> getAll() async {
-    List<ScannedDocument> _scannedDocuments = [];
-    var directory = Directory(await _directory);
+    final List<ScannedDocument> _scannedDocuments = [];
+    final directory = Directory(await _directory);
 
-    List<FileSystemEntity> itemList = directory.listSync();
+    final List<FileSystemEntity> itemList = directory.listSync();
 
-    for (var item in itemList) {
+    for (final item in itemList) {
       if (p.extension(item.path) == '.pdf') {
-        var fileName = p.basenameWithoutExtension(item.path);
+        final fileName = p.basenameWithoutExtension(item.path);
 
         _scannedDocuments.add(
           ScannedDocument(
             fileName,
-            "${await _directory}$fileName.png",
-            "${await _directory}$fileName.pdf",
+            '${await _directory}$fileName.png',
+            '${await _directory}$fileName.pdf',
           ),
         );
       }
@@ -59,14 +59,13 @@ class IoScannedDocumentRepository implements ScannedDocumentRepository {
     @required String firstPageUri,
     @required Uint8List document,
   }) async {
-    File firstPage = File(firstPageUri);
-    String fileName = Uuid().v1();
+    final File firstPage = File(firstPageUri);
+    final String fileName = Uuid().v1();
 
-    await firstPage.copy("${await _directory}$fileName.png");
+    await firstPage.copy('${await _directory}$fileName.png');
 
-    File pdfFile = File("${await _directory}$fileName.pdf");
+    final File pdfFile = File('${await _directory}$fileName.pdf');
 
-    print("${await _directory}$fileName.pdf");
     await pdfFile.writeAsBytes(document);
   }
 }

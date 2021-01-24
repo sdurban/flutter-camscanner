@@ -1,7 +1,7 @@
 class ScannedDocument {
-  String _uuid;
-  String _previewImageUri;
-  String _documentUri;
+  final String _uuid;
+  final String _previewImageUri;
+  final String _documentUri;
 
   ScannedDocument(this._uuid, this._previewImageUri, this._documentUri);
 

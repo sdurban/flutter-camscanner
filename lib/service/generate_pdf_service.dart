@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui';
 
 import 'package:cam_scanner/service/scanned_document_repository.dart';
 import 'package:injectable/injectable.dart';
@@ -18,9 +17,9 @@ class GeneratePdfService {
   Future<void> generatePdfFromImages(List<String> imagePaths) async {
     final pdf = pw.Document();
 
-    for (var element in imagePaths) {
-      Im.Image image = Im.decodeImage(await File(element).readAsBytes());
-      Uint8List imageFileBytes = Im.encodeJpg(image, quality: 60);
+    for (final element in imagePaths) {
+      final Im.Image image = Im.decodeImage(await File(element).readAsBytes());
+      final Uint8List imageFileBytes = Im.encodeJpg(image, quality: 60);
 
       pdf.addPage(
         pw.Page(
