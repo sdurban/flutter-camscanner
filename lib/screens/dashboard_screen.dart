@@ -40,7 +40,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       });
     }).catchError((_) {
       setState(() {
-        _loaded = false;
+        _loaded = true;
         _error = true;
       });
     });

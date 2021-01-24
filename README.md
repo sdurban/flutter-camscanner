@@ -33,6 +33,8 @@ This pdf can be printed, shared or OCR to text.
 
 `flutter pub run build_runner build --delete-conflicting-outputs`
 
+### Work in progress in testing!!!
+
 ## Images
 
 <img src="images/main_screen_no_scan.jpg" height="300px" />
